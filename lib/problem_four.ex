@@ -1,5 +1,6 @@
 defmodule ProblemFour do
 
+  @spec solve_naive :: <<_::64, _::_*8>>
   def solve_naive(), do: find_greatest_palindrome(0, 100, 100)
 
   defp find_greatest_palindrome(number, first, second) when first == 999 and second == 999 do
@@ -24,6 +25,7 @@ defmodule ProblemFour do
     stringified_number == String.reverse(stringified_number)
   end
 
+  @spec solve_efficient :: <<_::48, _::_*8>>
   def solve_efficient(), do: greatest_palindrome(0, 999, 100)
 
   defp greatest_palindrome(number, _palidrome_half, iterator)
