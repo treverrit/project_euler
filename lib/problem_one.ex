@@ -1,4 +1,5 @@
 defmodule ProblemOne do
+  @spec solve1 :: any
   @doc """
   solve the problem with the elixir library
   """
@@ -10,6 +11,7 @@ defmodule ProblemOne do
   # sum of all items in the list
   defp sum(list), do: Enum.reduce(list, 0, fn x, acc -> x + acc end)
 
+  @spec solve2 :: non_neg_integer
   @doc """
   solve the problem with recursion
   """
