@@ -1,4 +1,5 @@
 defmodule ProblemSix do
+  @spec solve :: integer
   def solve(), do: calculate_difference(0, 1)
 
   defp calculate_difference(sum, 100), do: Integer.pow(div(100 * 101, 2), 2) - (sum + 100 * 100)
