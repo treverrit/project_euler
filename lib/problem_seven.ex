@@ -4,19 +4,22 @@ defmodule ProblemSeven do
 
   defp find_prime(prime, _current, 10001), do: prime
   defp find_prime(current, number, counter) do
-    if is_prime(number) do
+    if prime?(number) do
       find_prime(number, number + 1, counter + 1)
     else
       find_prime(current, number + 1, counter)
     end
   end
 
-  defp is_prime(number) when number in [2, 3], do: true
-  defp is_prime(number) do
-    floored_sqrt =
-      :math.sqrt(number)
-      |> trunc()
+  defp prime?(number) when number in [2, 3], do: true
+  defp prime?(number) do
+    number
+    |> :math.sqrt()
+    |> trunc()
+    |> coprime?(number)
+  end
 
-    !Enum.any?(2..floored_sqrt, &(rem(number, &1) == 0))
+  defp coprime?(sqrt, number) do
+    !Enum.any?(2..sqrt, &(rem(number, &1) == 0))
   end
 end
